@@ -20,8 +20,8 @@ const SITE_DATA = {
     // Global site meta / nav
     // ---------------------------------------------------------------------
     meta: {
-        title: 'Maulina / Building Log',
-        brand: 'maulina / builds',
+        title: 'Maulina Sabrina Portofolio',
+        brand: 'Maulina Sabrina',
         statusBadge: 'Active: Jul 2026',
     },
 
@@ -62,7 +62,6 @@ const SITE_DATA = {
             { icon: 'cpu', label: 'Software Builder', classes: 'bg-blue-50 text-blue-700 border-blue-100' },
             { icon: 'brain', label: 'Product Thinker', classes: 'bg-neutral-100 text-neutral-700 border-neutral-200' },
             { icon: 'git-branch', label: 'System Analyst-ish', classes: 'bg-amber-50 text-amber-800 border-amber-200/70' },
-            { icon: 'music-4', label: 'Vibe Coder', classes: 'bg-purple-50 text-purple-700 border-purple-100' },
             { icon: 'search-code', label: 'Problem Collector 🔍', classes: 'bg-rose-50 text-rose-700 border-rose-100', title: 'The last one is cute 😂' },
         ],
     },
