@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maulina / Building Log</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind.config.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Tone.js for the Vibe Coder Interactive Synth -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+    <!-- Google Fonts: Inter & Playfair Display for a warm, editorial feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Site styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Alpine.js. Loaded with `defer`; include.js (below) holds its init
+         back until all section partials have been fetched and injected. -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="text-neutral-800 antialiased selection:bg-pink-100 selection:text-pink-800 notion-grid" x-data="portfolioState()">
+
+    <!-- Each of these loads its markup from /sections/*.html at runtime.
+         Edit the content in assets/js/data.js, or the layout in the
+         matching section file — you never need to touch this shell. -->
+    <div data-include="sections/nav.html"></div>
+    <div data-include="sections/header.html"></div>
+    <div data-include="sections/hero.html"></div>
+    <div data-include="sections/current-chapter.html"></div>
+    <div data-include="sections/featured-builds.html"></div>
+    <div data-include="sections/how-i-build.html"></div>
+    <div data-include="sections/project-library.html"></div>
+    <div data-include="sections/tiny-experiments.html"></div>
+    <div data-include="sections/playground.html"></div>
+    <div data-include="sections/about.html"></div>
+    <div data-include="sections/skills.html"></div>
+    <div data-include="sections/now.html"></div>
+    <div data-include="sections/notes.html"></div>
+    <div data-include="sections/contact.html"></div>
+    <div data-include="sections/footer.html"></div>
+
+    <!-- Content data (edit this to change text/cards/projects/notes/etc.) -->
+    <script src="assets/js/data.js"></script>
+    <!-- Behavior (Alpine state/methods) -->
+    <script src="assets/js/app.js"></script>
+    <!-- Section loader (must be last) -->
+    <script src="assets/js/include.js"></script>
+</body>
+</html>

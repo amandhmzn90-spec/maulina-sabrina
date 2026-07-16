@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CHANGE ME: page title -->
+    <title>Page Title / Maulina</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind.config.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Tone.js (only needed if this page uses the synth widget; safe to remove otherwise) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Site styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="text-neutral-800 antialiased selection:bg-pink-100 selection:text-pink-800 notion-grid" x-data="portfolioState()">
+
+    <!-- Reused across every page -->
+    <div data-include="sections/nav.html"></div>
+    <div data-include="sections/header.html"></div>
+
+    <!-- ============================================================
+         PAGE CONTENT GOES HERE.
+         Easiest path: create a new file in /sections (e.g.
+         sections/my-new-page.html) with your markup, then include it
+         the same way the lines above do:
+           <div data-include="sections/my-new-page.html"></div>
+         That keeps this page's content editable/reusable the same way
+         as the homepage sections.
+       ============================================================ -->
+    <main class="max-w-4xl mx-auto px-6 py-24">
+        <h1 class="text-3xl font-light text-neutral-900">New page</h1>
+        <p class="text-sm text-neutral-500 mt-2">Replace this with real content or a data-include block.</p>
+    </main>
+
+    <div data-include="sections/footer.html"></div>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/include.js"></script>
+</body>
+</html>

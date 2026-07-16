@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Maulina / Builds — Global styles
+   Edit colors/fonts here. Component-specific one-off tweaks can also live
+   here if a section needs something Tailwind utility classes can't do.
+   ========================================================================== */
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #FAF9F5; /* Warm Muji Cream */
+    scroll-behavior: smooth;
+}
+
+.serif-font {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.mono-font {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar to match Muji aesthetic */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #FAF9F5;
+}
+::-webkit-scrollbar-thumb {
+    background: #E5E3DB;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #D1CFCD;
+}
+
+/* Custom subtle grid background */
+.notion-grid {
+    background-size: 20px 20px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+}
+
+/* Hide scrollbar for clean carousel */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Simple fade-in used while section partials are being loaded in */
+[data-include] {
+    min-height: 1px;
+}
