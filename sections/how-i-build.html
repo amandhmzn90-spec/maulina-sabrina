@@ -1,0 +1,26 @@
+<!-- Section 4: How I Build Flowchart -->
+<section class="bg-white border-y border-neutral-200/60 py-24 px-6 overflow-hidden">
+    <div class="max-w-4xl mx-auto space-y-16">
+        <div class="text-center space-y-3">
+            <span class="text-xs font-mono text-neutral-400 tracking-wider uppercase">My Design Process</span>
+            <h2 class="text-3xl md:text-4xl font-light text-neutral-900 tracking-tight">How I Build</h2>
+            <p class="text-sm text-neutral-500">I don't start with database schemas. I start with people's physical routines.</p>
+        </div>
+
+        <!-- Scrollable Flowchart Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+            <!-- Connectors for larger screen layout -->
+            <div class="hidden md:block absolute top-[40px] left-[15%] w-[70%] h-0.5 border-t border-dashed border-neutral-300 -z-10"></div>
+
+            <template x-for="step in data.howIBuild" :key="step.num">
+                <div class="bg-[#FAF9F5] border border-neutral-200/80 p-5 rounded-2xl relative space-y-3 hover:scale-[1.02] transition-all">
+                    <div class="w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm" :class="[step.bg, step.text]" x-text="step.num"></div>
+                    <h4 class="text-sm font-bold text-neutral-800 flex items-center gap-1">
+                        <span x-text="step.title"></span> <span class="text-neutral-400" x-text="step.emoji"></span>
+                    </h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed" x-text="step.desc"></p>
+                </div>
+            </template>
+        </div>
+    </div>
+</section>

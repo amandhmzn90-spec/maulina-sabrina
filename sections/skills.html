@@ -1,0 +1,59 @@
+<!-- Section 9: Skills, Tech Stack & Productivity -->
+<section class="max-w-4xl mx-auto px-6 py-24 space-y-12">
+    <div class="text-center space-y-3">
+        <span class="text-xs font-mono text-neutral-400 tracking-wider uppercase">My Toolkit</span>
+        <h2 class="text-3xl font-light text-neutral-900 tracking-tight">Skills & Tech Stack</h2>
+        <p class="text-sm text-neutral-500">The core technologies I build with, alongside the daily tools keeping my life structured.</p>
+    </div>
+
+    <!-- Toolkit & Apps Card -->
+    <div class="bg-white border border-neutral-200 rounded-3xl overflow-hidden shadow-sm">
+        <!-- Header Style mimicking cozy Notion specs -->
+        <div class="bg-neutral-50 px-6 py-3.5 border-b border-neutral-100 flex justify-between items-center text-xs text-neutral-400 font-mono">
+            <span>STACK_CONFIG.JSON</span>
+            <span>STATUS: STABLE</span>
+        </div>
+
+        <!-- Main Split Grid -->
+        <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+            <!-- Left: Skills & Tech Stack -->
+            <div class="space-y-6">
+                <h4 class="font-bold text-sm text-neutral-800 tracking-wider uppercase flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Technologies I Use
+                </h4>
+
+                <div class="space-y-4">
+                    <template x-for="cat in data.skills.techStack" :key="cat.label">
+                        <div>
+                            <span class="text-[11px] font-mono font-semibold tracking-wider text-neutral-400 uppercase" x-text="cat.label"></span>
+                            <div class="flex flex-wrap gap-2 mt-1.5">
+                                <template x-for="tag in cat.tags" :key="tag">
+                                    <span class="px-2.5 py-1 bg-neutral-100 text-neutral-700 text-xs rounded-lg border border-neutral-200" x-text="tag"></span>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Right: Daily Productivity Apps -->
+            <div class="space-y-6">
+                <h4 class="font-bold text-sm text-neutral-800 tracking-wider uppercase flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span> Daily Productivity Apps
+                </h4>
+
+                <ul class="space-y-3">
+                    <template x-for="app in data.skills.dailyApps" :key="app.title">
+                        <li class="flex items-center gap-3.5 p-2 bg-neutral-50 rounded-xl border border-neutral-100">
+                            <span class="text-xl" x-text="app.emoji"></span>
+                            <div>
+                                <h6 class="text-xs font-bold text-neutral-800" x-text="app.title"></h6>
+                                <p class="text-[11px] text-neutral-500" x-text="app.desc"></p>
+                            </div>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

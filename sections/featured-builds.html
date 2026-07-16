@@ -1,0 +1,70 @@
+<!-- Section 3: Featured Builds -->
+<section id="builds" class="max-w-4xl mx-auto px-6 py-24 space-y-16">
+    <div class="space-y-3 text-center">
+        <span class="text-xs font-mono text-neutral-400 tracking-wider uppercase">Selected Works</span>
+        <h2 class="text-3xl md:text-4xl font-light tracking-tight text-neutral-900">Featured Builds</h2>
+        <p class="text-sm text-neutral-500 max-w-lg mx-auto">
+            No high-level technical vanity statistics. Just stories of real bottlenecks analyzed and systematically resolved.
+        </p>
+    </div>
+
+    <!-- Big Card Container -->
+    <div class="space-y-12">
+        <template x-for="build in data.featuredBuilds" :key="build.title">
+            <div class="bg-white border border-neutral-200 rounded-3xl overflow-hidden shadow-sm transition-all hover:shadow-md">
+                <!-- Card Header Accent -->
+                <div class="bg-gradient-to-r px-8 py-6 border-b border-neutral-100 flex flex-wrap gap-4 justify-between items-center" :class="build.headerGradient">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl" x-text="build.emoji"></span>
+                        <div>
+                            <h3 class="text-lg font-bold text-neutral-800" x-text="build.title"></h3>
+                            <p class="text-xs text-neutral-400" x-text="build.subtitle"></p>
+                        </div>
+                    </div>
+                    <span class="px-2.5 py-1 text-xs font-mono rounded-full font-semibold" :class="build.badgeClass" x-text="build.badge"></span>
+                </div>
+
+                <!-- Card Structured Body -->
+                <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Column Left: Problem & Observation -->
+                    <div class="space-y-6">
+                        <div class="space-y-1.5">
+                            <span class="text-xs font-mono font-bold tracking-wider text-rose-500 uppercase flex items-center gap-1.5">
+                                <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i> The Problem
+                            </span>
+                            <p class="text-sm text-neutral-700 leading-relaxed" x-text="build.problem"></p>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <span class="text-xs font-mono font-bold tracking-wider text-neutral-500 uppercase flex items-center gap-1.5">
+                                <i data-lucide="eye" class="w-3.5 h-3.5"></i> My Observation
+                            </span>
+                            <p class="text-sm text-neutral-600 leading-relaxed" x-text="build.observation"></p>
+                        </div>
+                    </div>
+
+                    <!-- Column Right: Build & Outcome -->
+                    <div class="space-y-6">
+                        <div class="space-y-1.5">
+                            <span class="text-xs font-mono font-bold tracking-wider text-blue-500 uppercase flex items-center gap-1.5">
+                                <i data-lucide="code" class="w-3.5 h-3.5"></i> What I Built
+                            </span>
+                            <ul class="text-sm text-neutral-700 space-y-1 pl-4 list-disc marker:text-blue-400">
+                                <template x-for="line in build.built" :key="line">
+                                    <li x-html="line"></li>
+                                </template>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-1.5 bg-neutral-50 p-4 rounded-xl border border-neutral-100">
+                            <span class="text-xs font-mono font-bold tracking-wider text-emerald-600 uppercase flex items-center gap-1.5">
+                                <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> The Outcome
+                            </span>
+                            <p class="text-sm text-neutral-600 leading-relaxed font-medium" x-text="build.outcome"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</section>

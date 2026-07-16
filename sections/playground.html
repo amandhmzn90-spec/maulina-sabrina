@@ -1,0 +1,79 @@
+<!-- Section 7: Playground / Current Obsessions -->
+<section id="playground" class="max-w-4xl mx-auto px-6 py-24 space-y-12">
+    <div class="text-center space-y-3">
+        <span class="text-xs font-mono text-neutral-400 tracking-wider uppercase">Workspace Vibes</span>
+        <h2 class="text-3xl font-light text-neutral-900 tracking-tight">Current Obsessions</h2>
+        <p class="text-sm text-neutral-500">What I'm researching, learning, or actively geeking out over right now.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Checklist Obsessions -->
+        <div class="space-y-4">
+            <div class="bg-white border border-neutral-200 p-6 rounded-2xl space-y-4 shadow-xs">
+                <h4 class="font-semibold text-neutral-800 text-sm tracking-wider uppercase flex items-center gap-2 text-rose-500">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i> Tech & Build Interests
+                </h4>
+                <div class="grid grid-cols-2 gap-3">
+                    <template x-for="item in data.playground.techInterests" :key="item.label">
+                        <div class="flex items-center gap-2 p-2 bg-neutral-50 rounded-lg text-xs font-medium text-neutral-700" :class="item.wide ? 'col-span-2' : ''">
+                            <span class="w-1.5 h-1.5 rounded-full" :class="item.dot"></span> <span x-text="item.label"></span>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <div class="bg-white border border-neutral-200 p-6 rounded-2xl space-y-4 shadow-xs">
+                <h4 class="font-semibold text-neutral-800 text-sm tracking-wider uppercase flex items-center gap-2 text-blue-500">
+                    <i data-lucide="headphones" class="w-4 h-4"></i> Personal Obsessions
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                    <template x-for="item in data.playground.personalObsessions" :key="item.label">
+                        <span class="px-3 py-1.5 text-xs font-semibold rounded-full flex items-center gap-1.5" :class="item.classes" x-text="item.label"></span>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Visual Vibe Player Card -->
+        <div class="bg-white border border-neutral-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between space-y-6 h-full border-b-4 border-b-neutral-300">
+            <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-mono text-neutral-400" x-text="data.playground.synthCard.eyebrow"></span>
+                    <span class="px-2 py-0.5 bg-pink-100 text-pink-700 text-[10px] font-bold rounded" x-text="data.playground.synthCard.liveTag"></span>
+                </div>
+                <h4 class="font-bold text-neutral-800 text-base" x-text="data.playground.synthCard.title"></h4>
+                <p class="text-xs text-neutral-500" x-text="data.playground.synthCard.desc"></p>
+            </div>
+
+            <!-- Custom Sound Control Interface -->
+            <div class="bg-neutral-50 p-4 rounded-xl border border-neutral-100 space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <!-- Animated Music bar if playing -->
+                        <div class="flex items-end gap-0.5 w-4 h-4" x-show="isPlayingSynth">
+                            <span class="w-0.7 bg-pink-500 animate-pulse h-3"></span>
+                            <span class="w-0.7 bg-pink-400 animate-pulse h-2.5"></span>
+                            <span class="w-0.7 bg-pink-600 animate-pulse h-4"></span>
+                        </div>
+                        <span class="text-xs font-semibold text-neutral-700" x-text="isPlayingSynth ? 'Chords Generator Active' : 'Synth Offline'"></span>
+                    </div>
+                    <button @click="toggleSynth"
+                            class="px-4 py-2 text-xs font-bold text-white bg-neutral-800 hover:bg-neutral-900 active:scale-95 transition-all rounded-lg flex items-center gap-1.5">
+                        <span x-text="isPlayingSynth ? 'Mute' : 'Play Synth'"></span>
+                    </button>
+                </div>
+
+                <!-- Ambient Sound Controls -->
+                <div class="space-y-2">
+                    <label class="text-[10px] text-neutral-400 block font-mono">CHILL KEYBOARD EMULATOR</label>
+                    <div class="flex gap-1">
+                        <template x-for="key in data.playground.synthCard.keys" :key="key.note">
+                            <button @click="triggerKeySound(key.freq)" class="flex-1 py-2 bg-white border border-neutral-200 hover:bg-pink-50 hover:border-pink-300 active:scale-95 transition-all rounded text-xs font-mono text-neutral-700" x-text="key.note"></button>
+                        </template>
+                    </div>
+                    <span class="text-[10px] text-neutral-400 italic block">Click keys to simulate relaxing organic keys.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

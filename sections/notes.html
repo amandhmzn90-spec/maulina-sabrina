@@ -1,0 +1,28 @@
+<!-- Section 11: Notes (Tiny Entries / Digital Garden) -->
+<section id="notes" class="max-w-4xl mx-auto px-6 py-24 space-y-12">
+    <div class="text-center space-y-3">
+        <span class="text-xs font-mono text-neutral-400 tracking-wider uppercase">My Digital Garden</span>
+        <h2 class="text-3xl font-light text-neutral-900 tracking-tight">Sticky Notes Log</h2>
+        <p class="text-sm text-neutral-500">Micro-insights, lessons from the bakery, and odd engineering observations.</p>
+    </div>
+
+    <!-- Sticky Notes Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <template x-for="note in data.notes" :key="note.id">
+            <div class="border p-6 rounded-2xl shadow-xs hover:rotate-0 transition-transform duration-300 flex flex-col justify-between space-y-4"
+                 :class="[note.bg, note.border, note.rotate]">
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center text-[10px] font-mono" :class="note.tagColor">
+                        <span x-text="note.id"></span>
+                        <span x-text="note.date"></span>
+                    </div>
+                    <p class="text-xs text-neutral-700 leading-relaxed font-medium" x-text="note.text"></p>
+                </div>
+                <div class="pt-2 border-t flex justify-between items-center text-[10px] font-mono" :class="[note.footerBorder, note.footerColor]">
+                    <span>- Maulina</span>
+                    <span x-text="note.location"></span>
+                </div>
+            </div>
+        </template>
+    </div>
+</section>

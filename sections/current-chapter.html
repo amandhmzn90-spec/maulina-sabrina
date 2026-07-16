@@ -1,0 +1,90 @@
+<!-- Section 2: Current Chapter (Book Inspired Timeline) -->
+<section class="bg-[#F6F5EF] border-y border-neutral-200/60 py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header section -->
+        <div class="text-center space-y-4 mb-16">
+            <h2 class="text-3xl md:text-4xl font-light text-neutral-900 tracking-tight flex items-center justify-center gap-2">
+                <i data-lucide="book-open" class="w-8 h-8 text-neutral-700"></i> Current Chapter
+            </h2>
+            <div class="flex items-center justify-center gap-2 text-sm text-neutral-600 mt-2">
+                <span class="font-bold" x-text="data.currentChapter.year"></span>
+                <span class="text-neutral-300">•</span>
+                <span x-text="data.currentChapter.role"></span>
+                <span class="text-neutral-300">•</span>
+                <span class="italic" x-text="data.currentChapter.location"></span>
+            </div>
+        </div>
+
+        <!-- Content Split Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-start">
+            <!-- Left Paragraph Box -->
+            <div class="md:col-span-5 bg-white border border-neutral-200/80 p-6 rounded-2xl shadow-sm space-y-4 md:sticky md:top-24">
+                <div class="flex items-center gap-2 text-rose-500">
+                    <i data-lucide="terminal" class="w-5 h-5"></i>
+                    <span class="font-mono text-xs font-bold tracking-wider uppercase" x-text="data.currentChapter.sideNote.label"></span>
+                </div>
+                <p class="text-neutral-700 text-sm leading-relaxed" x-html="data.currentChapter.sideNote.lead"></p>
+                <p class="text-neutral-500 text-xs leading-relaxed" x-text="data.currentChapter.sideNote.body"></p>
+            </div>
+
+            <!-- Right Timeline -->
+            <div class="md:col-span-7 space-y-12 pl-4 border-l border-neutral-200/80 relative">
+                <template x-for="(item, index) in data.currentChapter.timeline" :key="item.title">
+                    <div>
+                        <div class="relative pl-6">
+                            <!-- Bullet Dot -->
+                            <div class="absolute -left-[25px] top-0.5 w-4 h-4 rounded-full z-10" :class="item.dotClass"></div>
+
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl" x-text="item.icon"></span>
+                                    <h4 class="text-base font-semibold text-neutral-800" x-text="item.title"></h4>
+                                </div>
+
+                                <p class="text-xs font-mono" :class="item.labelClass" x-text="item.label"></p>
+
+                                <p class="text-sm text-neutral-600" :class="item.bodyBold ? 'font-medium' : ''" x-html="item.body"></p>
+
+                                <!-- Optional link -->
+                                <template x-if="item.link">
+                                    <a :href="item.link.href"
+                                       class="inline-flex items-center gap-2 text-sm font-medium text-pink-600 hover:text-pink-700 transition">
+                                        <span x-text="item.link.text"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                        </svg>
+                                    </a>
+                                </template>
+
+                                <!-- Optional expandable "side quests" details -->
+                                <template x-if="item.expandable">
+                                    <details class="group rounded-xl border border-neutral-200 bg-neutral-50">
+                                        <summary class="cursor-pointer list-none px-4 py-3 flex items-center justify-between text-sm font-medium text-neutral-700">
+                                            <span x-text="item.expandable.summary"></span>
+                                            <svg class="w-4 h-4 transition duration-300 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                            </svg>
+                                        </summary>
+                                        <div class="px-4 pb-4 pt-2 space-y-4">
+                                            <template x-for="quest in item.expandable.items" :key="quest.title">
+                                                <div class="border-l-2 pl-3" :class="quest.border">
+                                                    <h5 class="font-medium text-neutral-800" x-text="quest.title"></h5>
+                                                    <p class="text-sm text-neutral-600 mt-1" x-text="quest.body"></p>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </details>
+                                </template>
+                            </div>
+                        </div>
+
+                        <!-- Connector arrow between items (not after the last one) -->
+                        <template x-if="item.connector && index < data.currentChapter.timeline.length - 1">
+                            <div class="text-center text-neutral-300 font-bold text-lg select-none -my-4 pr-12">↓</div>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</section>

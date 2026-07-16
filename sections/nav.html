@@ -1,0 +1,11 @@
+<!-- Floating Cozy Nav. Links come from SITE_DATA.nav in data.js -->
+<nav class="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-md border border-neutral-200/80 px-4 py-2.5 rounded-full shadow-lg max-w-lg w-[90%] md:w-auto transition-all duration-300">
+    <div class="flex items-center justify-between md:justify-center gap-1 md:gap-4 text-xs md:text-sm font-medium text-neutral-600">
+        <template x-for="item in data.nav" :key="item.id">
+            <a :href="item.href"
+               class="px-3 py-1.5 rounded-full hover:bg-neutral-100 hover:text-neutral-900 transition-colors"
+               :class="{'bg-neutral-100 text-neutral-900 font-semibold': activeSection === item.id}"
+               x-text="item.label"></a>
+        </template>
+    </div>
+</nav>

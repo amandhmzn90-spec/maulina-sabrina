@@ -1,0 +1,27 @@
+<!-- Section 10: Now Section (Inspired by Derek Sivers) -->
+<section class="bg-neutral-100 border-t border-neutral-200/80 py-24 px-6">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Header Column -->
+        <div class="lg:col-span-4 space-y-4">
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider">Updates Monthly</span>
+            <h2 class="text-3xl font-light text-neutral-900 tracking-tight flex items-center gap-2">
+                <span class="inline-block w-2.5 h-2.5 bg-green-500 rounded-full animate-ping"></span> Now
+            </h2>
+            <p class="text-xs text-neutral-500 leading-relaxed">
+                This is a <a href="https://nownownow.com" target="_blank" class="underline text-blue-500 font-semibold">"now" page</a>. It documents my current state of focus, thoughts, and lessons instead of long formal portfolios.
+            </p>
+            <span class="text-[11px] text-neutral-400 font-mono italic block" x-text="data.now.lastUpdated"></span>
+        </div>
+
+        <!-- Content Card Details -->
+        <div class="lg:col-span-8 bg-white border border-neutral-200 rounded-2xl p-6 md:p-8 shadow-xs grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <template x-for="update in data.now.updates" :key="update.title">
+                <div class="space-y-1">
+                    <span class="text-xs font-mono font-bold tracking-wider uppercase" :class="update.color" x-text="update.label"></span>
+                    <p class="text-sm font-semibold text-neutral-800" x-text="update.title"></p>
+                    <p class="text-xs text-neutral-500" x-text="update.desc"></p>
+                </div>
+            </template>
+        </div>
+    </div>
+</section>
